@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-server
+  labels:
+    app: serverjs
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: serverjs
+  template:
+    metadata:
+      labels:
+        app: serverjs
+    spec:
+      containers:
+      - name: serverjs
+        image: rafapili1/serverjs:alpha
+        ports:
+        - containerPort: 3000
